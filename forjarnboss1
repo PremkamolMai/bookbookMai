@@ -1,0 +1,49 @@
+class Person{
+    static idrn = 1
+    constructor(name = 'N/A'){
+        this.id = Person.idrn++;
+        this.name = name;
+        this.Wishlist = [];
+    }
+    getId(){
+        return this.id;
+    }
+    getName(){
+        return this.name;
+    }
+    getWishlist(){
+        return this.Wishlist;
+    }
+    addWishlist(item){
+        if(item === null || item === undefined){
+            return undefined
+        }else{
+            this.Wishlist.push(item)
+            return this.Wishlist.length
+        }
+    }
+    removeWishlist(item){
+        if(item === null || item === undefined){
+            return undefined
+        }else 
+        if(!this.Wishlist.includes(item)){
+            return "not found to remove"
+        }this.Wishlist = (this.Wishlist.filter(i => i !== item))
+            return item
+
+    }
+    findWishlist(item){
+        if(item === null || item === undefined){
+            return undefined
+        }else if(!this.Wishlist.includes(item)){
+            return "not found"
+        }
+        return {
+            index: this.Wishlist.indexOf(item),
+            value: item
+        }
+        }
+    }
+
+
+module.exports = {Person}
